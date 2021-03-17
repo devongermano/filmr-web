@@ -1,0 +1,12 @@
+{
+  "name": "filmr",
+  "short_name": "filmr",
+  "start_url": "./",
+  "description": "A PWA that is built with Angular",
+
+  "display": "standalone",
+  "theme_color": "#000C3F",
+  "background_color": "#000C3F"
+
+
+}

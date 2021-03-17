@@ -1,0 +1,31 @@
+button {
+  position: relative;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #e6eaed;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+.notification-tag {
+  text-align: center;
+  font-size: 10px;
+  position: absolute;
+  right: -3px;
+  top: -1px;
+  background-color: #ea5a4c;
+  color: white;
+  border-radius: 10px;
+  height: 18px;
+  width: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

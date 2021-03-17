@@ -1,0 +1,7 @@
+<div class="modal-overlay" (click)="router.navigate(['..'], { relativeTo: route })">
+  <div class="modal-aligner">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

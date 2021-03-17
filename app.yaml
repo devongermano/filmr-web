@@ -1,0 +1,40 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+
+  - url: /
+    secure: always
+    static_files: dist/socialdonut/index.html
+    upload: dist/socialdonut/.*
+  - url: /(.*\.js)
+    secure: always
+    redirect_http_response_code: 301
+    static_files: dist/socialdonut/\1
+    upload: dist/socialdonut/.*\.js
+  - url: /(.*\.css)
+    secure: always
+    redirect_http_response_code: 301
+    static_files: dist/socialdonut/\1
+    mime_type: text/css
+    upload: dist/socialdonut/.*\.css
+  #  Routing rules for resources, css, js, images etc. Any file with format filename.ext
+  - url: /(.*\.(.+))$
+    secure: always
+    static_files: dist/socialdonut/\1
+    upload: dist/socialdonut/(.*\.(.+))$
+  - url: /.*
+    secure: always
+    static_files: dist/socialdonut/index.html
+    upload: dist/socialdonut/.*
+
+skip_files:
+  - e2e/
+  - node_modules/
+  - src/
+  - ^(.*/)?\..*$
+  - ^(.*/)?.*\.json$
+  - ^(.*/)?.*\.md$
+  - ^(.*/)?.*\.yaml$
+  - ^LICENSE

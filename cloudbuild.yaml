@@ -1,0 +1,16 @@
+steps:
+
+  # Install Angular
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install','-g','@angular/cli' ]
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+
+  # build Project in mode Prod.
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'ng', 'build', '--prod','--aot', '-vc', '--cc', '--dop', '--buildOptimizer']
+
+  # Deploy to google cloud app engine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', '--version=prod']

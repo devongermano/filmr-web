@@ -1,0 +1,18 @@
+<div (click)="sidebarService.closeSidebar()" class="cover" [ngClass]="{'cover-fadeout': sidebarService.isSidebarClosed, 'cover-fadein': !sidebarService.isSidebarClosed}">
+  <div class="sidebar" (click)="$event.stopPropagation()" [ngClass]="{'sidebar-closed': sidebarService.isSidebarClosed}">
+    <button (click)="sidebarService.closeSidebar()">Close</button>
+    <div class="sidebar-header">
+      <div class="sidebar-header-glyph" style="background-image: url(../../assets/test_glyph.jpeg)"></div>
+      <div class="sidebar-header-info">
+        <div class="sidebar-header-name">devytheheavychevy</div>
+        <div class="sidebar-header-username">@devytheheavychevy</div>
+      </div>
+    </div>
+    <div class="sidebar-content">
+
+    </div>
+    <div class="sidebar-footer">
+
+    </div>
+  </div>
+</div>

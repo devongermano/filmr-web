@@ -1,0 +1,23 @@
+<div class="page-header-options">
+  <button class="page-header-icon-button" *ngIf="showBackButton" (click)="location.back()">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button *ngIf="showCancelButton" (click)="router.navigate(['..'], { relativeTo: route })">
+    Cancel
+  </button>
+</div>
+
+<div class="page-header-options">
+  <p class="page-header-text">{{title}}</p>
+</div>
+
+
+<div class="page-header-options">
+  <button class="page-header-icon-button" *ngIf="showOptionsButton">
+    <i class="fas fa-ellipsis-h"></i>
+  </button>
+
+  <button *ngIf="showSaveButton" (click)="onSaveEvent.emit()">
+    Save
+  </button>
+</div>

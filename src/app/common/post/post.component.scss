@@ -1,0 +1,87 @@
+:host {
+  width: 100%;
+}
+
+.post {
+  max-width: 100%;
+  background: white;
+  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  .post-header {
+    display: flex;
+    align-items: center;
+    padding: 8px 5px;
+    .post-header-glyph {
+      margin: 0 5px 0 0;
+      width: 35px;
+      height: 35px;
+      border-radius: 35px;
+      background-clip: padding-box;
+      background-size: cover;
+      background-position: center center;
+    }
+    .post-header-info {
+      .post-header-name {
+        font-weight: bold;
+        font-size: 15px;
+      }
+      .post-header-date {
+        font-size: 14px;
+        color: grey;
+      }
+    }
+  }
+
+  .post-likes {
+    padding: 10px 0 5px 10px;
+    font-weight: bold;
+  }
+  .post-text {
+    padding: 5px 10px;
+  }
+  .post-content {
+    background: black;
+    img {
+      width: 100%;
+      display: block;
+    }
+    video {
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+.post-actions {
+  padding: 5px 10px;
+  .post-action-button {
+    padding: 0;
+    color: #64666b;
+    background: none;
+    border: none;
+    // height: 40px;
+    font-size: 23px;
+    .liked {
+      color: red;
+    }
+  }
+}
+
+.test-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.test-button {
+  position: absolute;
+  top: -25px;
+  background: rgba(41, 41, 41, 0.44);
+  border: 0;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: white;
+  i {
+    font-size: 20px;
+  }
+}

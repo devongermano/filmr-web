@@ -1,0 +1,30 @@
+<app-page-header title="Edit Profile" [type]="pageHeaderType"></app-page-header>
+
+
+
+<div class="edit-profile-header">
+  <div class="change-photo-button-wrapper">
+    <button class="change-photo-button" (click)="router.navigate(['crop-image'])">
+      <img class="change-photo-button-image" [src]="user?.photoUrl">
+      <div class="change-photo-overlay">
+        <i class="far fa-camera"></i>
+      </div>
+    </button>
+    <p>Change Photo</p>
+  </div>
+
+</div>
+
+<div class="list">
+  <div class="list-item">
+    <div class="list-item-description">Username</div>
+    <div class="list-item-value">{{user?.username}}</div>
+    <i class="far fa-chevron-right"></i>
+  </div>
+
+  <div class="list-item">
+    <div class="list-item-description">Bio</div>
+    <div class="list-item-value">{{user?.bio}}</div>
+    <i class="far fa-chevron-right"></i>
+  </div>
+</div>

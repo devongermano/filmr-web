@@ -1,0 +1,32 @@
+<app-background-adjuster [backgroundStyle]='{
+  "background-color": "white"
+}'>
+</app-background-adjuster>
+
+<div class="header" [ngClass]="{'show-shadow': scrollPosition > 0}">
+  <h1>SocialDonut</h1>
+
+  <div class="header-buttons">
+    <app-notification-button notificationCount="1" style="margin-right: 10px;">
+      <i class="fas fa-heart"></i>
+    </app-notification-button>
+    <app-notification-button notificationCount="12">
+      <i class="fas fa-comment-dots"></i>
+    </app-notification-button>
+  </div>
+</div>
+
+<div class="container">
+  <!-- <button (click)="authService.logout()">Logout</button> -->
+  <div class="feed">
+
+    <ng-container *ngFor="let post of posts">
+      <app-post [post]="post"></app-post>
+    </ng-container>
+
+
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

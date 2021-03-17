@@ -1,0 +1,19 @@
+.modal-header {
+  width: 100%;
+  padding: 20px 0;
+  border-bottom: 1px solid #eef2f5;
+  display: flex;
+  .modal-header-text {
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+    flex: 1;
+  }
+  .modal-header-back-button {
+
+  }
+  .modal-header-close-button {
+    margin-left: auto;
+  }
+}

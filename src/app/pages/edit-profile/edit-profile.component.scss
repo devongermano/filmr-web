@@ -1,0 +1,67 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.edit-profile-header {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.change-photo-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.change-photo-button {
+  background: none;
+  border: none;
+  width: fit-content;
+  padding: 0;
+  position: relative;
+  .change-photo-button-image {
+    height: 100px;
+    width: 100px;
+    filter: brightness(0.75);
+  }
+  .change-photo-overlay {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    i {
+      color: #ffffff9c;
+      font-size: 35px;
+    }
+  }
+}
+
+.list {
+  background: white;
+  padding: 0 10px;
+  .list-item {
+    padding: 20px 0;
+    display: flex;
+    background: none;
+    border: none;
+    width: 100%;
+    margin: 0;
+    font-size: 14px;
+    .list-item-description {
+
+    }
+    .list-item-value {
+      margin-left: auto;
+    }
+    i {
+      margin: 0 0 0 10px;
+    }
+  }
+}

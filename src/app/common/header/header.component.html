@@ -1,0 +1,27 @@
+<div class="header-internal">
+  <!-- <img height="25px" src="../../assets/donut.png"> -->
+  <h2>SocialDonut</h2>
+
+  <ul>
+    <li>
+      <a routerLink="/home">
+        <i class="fas fa-home"></i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/home/create-post">
+        <i class="fas fa-plus-circle"></i>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/profile">
+        <i class="fas fa-user-circle"></i>
+      </a>
+    </li>
+    <li>
+      <a (click)="sidebarService.openSidebar()">
+        <i class="fas fa-cog"></i>
+      </a>
+    </li>
+  </ul>
+</div>

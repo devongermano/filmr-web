@@ -1,0 +1,25 @@
+<app-page-header [title]="user?.username" [type]="pageHeaderType"></app-page-header>
+<div class="profile-header">
+  <img class="profile-header-glyph" [src]="user?.photoUrl">
+  <p class="profile-header-username">@{{user?.username}}</p>
+  <div class="profile-stats">
+    <div class="profile-stat">
+      <div class="profile-stat-value">86</div>
+      <div class="profile-stat-label">Posts</div>
+    </div>
+    <div class="profile-stat">
+      <div class="profile-stat-value">1.1K</div>
+      <div class="profile-stat-label">Followers</div>
+    </div>
+    <div class="profile-stat">
+      <div class="profile-stat-value">12.2K</div>
+      <div class="profile-stat-label">Likes</div>
+    </div>
+  </div>
+
+<!--<button>Subscribe</button>-->
+<button class="profile-header-button" (click)="router.navigate(['edit-profile'])">Edit Profile</button>
+
+  <p class="profile-header-bio">Hey! My names Devy! I'm a Sean Cody model and a content creator on
+TikTok. Subscribe!</p>
+</div>

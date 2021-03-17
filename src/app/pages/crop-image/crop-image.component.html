@@ -1,0 +1,4 @@
+<app-page-header title="Crop Profile Image" [type]="pageHeaderType" (onSaveEvent)="save()"></app-page-header>
+
+<input type="file" (change)="onFileChange($event)">
+<div id="croppie" #croppie></div>

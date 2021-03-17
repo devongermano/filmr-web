@@ -1,0 +1,133 @@
+$font-base-size: 16px;
+$font-secondary-size: 14px;
+
+$black: #130b2c;
+
+
+p {
+  font-size:$font-base-size;
+}
+
+h1 {
+  font-family: Poppins;
+  font-size: 62px;
+  font-weight: bolder;
+}
+
+.signup-logo {
+  height: 40px;
+  margin-bottom: 50px;
+}
+
+.signup-container {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup-modal {
+  width: 320px;
+}
+
+.twitter-button {
+  background: #00acee;
+  border: 0;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: $font-base-size;
+  padding: 12px;
+  width: 100%;
+  color: white;
+  i {
+    margin-right: 5px;
+    color: white;
+    font-size: $font-base-size;
+  }
+}
+
+.input {
+  border: 3px solid $black;
+  background: transparent;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: $font-base-size;
+  padding: 12px;
+  width: 100%;
+  outline: none;
+  background-clip: padding-box;
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.5);
+    opacity: 1; /* Firefox */
+  }
+  &:focus {
+    border-color: #00acee;
+  }
+}
+
+.input-wrapper {
+  margin: 10px 0;
+}
+
+.signup-button {
+  border: none;
+  background: $black;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: $font-base-size;
+  padding: 12px;
+  width: 100%;
+  color: white;
+  margin-top: 40px;
+}
+
+.disclaimer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: $font-secondary-size;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.divider {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: $font-secondary-size;
+}
+
+.signup-error-text {
+  color: red;
+  font-size: $font-secondary-size;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.signup-signup {
+  text-align: center;
+  font-size: $font-base-size;
+  margin: 20px 0;
+}
+
+
+@import '../../../../../node_modules/include-media/dist/include-media';
+
+
+$breakpoints: (xsmall: 500px, small: 768px, medium: 960px, large: 1200px);
+/* Inclusive and exclusive operators for a finer control over the intervals */
+
+@include media("<xsmall") {
+  .signup-container {
+    background: white;
+  }
+  .signup-modal {
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+    padding: 0 30px;
+  }
+  .signup-modal-internal {
+    padding: 0;
+  }
+}

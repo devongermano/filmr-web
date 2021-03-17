@@ -1,0 +1,26 @@
+<div class="footer-container">
+  <button [ngClass]="{'selected': router.url == '/home'}" [routerLink]="['/home']">
+    <i class="far fa-home"></i>
+    <span>Home</span>
+  </button>
+
+  <button [ngClass]="{'selected': router.url == '/discover'}" routerLink="/discover">
+    <i class="far fa-search"></i>
+    <span>Search</span>
+  </button>
+
+  <button [ngClass]="{'selected': router.url == '/post'}" [routerLink]="['/post']">
+    <i class="far fa-plus-circle"></i>
+    <span>Post</span>
+  </button>
+
+  <button [ngClass]="{'selected': router.url == '/profile'}" routerLink="/profile">
+    <i class="far fa-user-circle"></i>
+    <span>Profile</span>
+  </button>
+
+  <button [ngClass]="{'selected': router.url == '/settings'}" [routerLink]="['/settings']">
+    <i class="far fa-cog"></i>
+    <span>Settings</span>
+  </button>
+</div>

@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  align-items: center;
+  background: white;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #ececec;
+}
+
+.page-header-options {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.page-header-text {
+  font-weight: bold;
+  font-size: 16px;
+  color: #696969;
+}
+
+.page-header-options:first-child {
+  margin-right: auto;
+  justify-content: flex-start;
+}
+
+.page-header-options:last-child {
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+.page-header-icon-button {
+  background: none;
+  border: none;
+  font-size: 21px;
+  color: #696969;
+  padding: 10px;
+}

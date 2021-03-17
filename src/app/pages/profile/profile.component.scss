@@ -1,0 +1,54 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.profile-header {
+  background: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-header-glyph {
+  width: 70px;
+  height: 70px;
+}
+
+.profile-header-username {
+  margin: 10px 0;
+}
+
+.profile-stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin: 15px 0;
+  .profile-stat {
+    width: 100%;
+    text-align: center;
+    .profile-stat-value {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .profile-stat-label {
+      font-size: 14px;
+    }
+  }
+}
+
+.profile-header-bio {
+  margin: 10px 0;
+  padding: 0 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.profile-header-button {
+  background: white;
+  border-radius: 0;
+  padding: 10px 30px;
+  font-size: 14px;
+}

@@ -1,0 +1,48 @@
+<!--<app-background-adjuster [backgroundStyle]='{-->
+<!--  "background-color": "#4b2594"-->
+<!--}'>-->
+<!--  <div class="background-container">-->
+<!--    <div class="background-top"></div>-->
+<!--    <div class="background-bottom"></div>-->
+<!--  </div>-->
+<!--</app-background-adjuster>-->
+
+
+<div class="login-header">
+  <button class="signup-button">Sign up</button>
+</div>
+
+<div class="login-container">
+  <div class="login-container-internal">
+
+    <div class="login-container-signin">
+      <h1 class="login-container-signin-logo">SocialDonut</h1>
+      <p class="login-container-signin-subtext">Sign up to make money and interact with your fans!</p>
+
+      <form>
+        <div class="input-holder">
+          <input #emailInput class="input" type="email" placeholder=" " name="email" autocomplete="email">
+          <div class="placeholder">Email</div>
+          <p class="error">Please enter a valid email</p>
+        </div>
+        <div class="input-holder">
+          <input class="input" type="password" placeholder=" " name="password" autocomplete="current-password">
+          <div class="placeholder">Password</div>
+          <p class="error">Please enter a valid password</p>
+        </div>
+        <button class="email-login-button" type="submit" name="email-login-button">
+          Sign in
+        </button>
+      </form>
+
+    </div>
+
+    <div class="login-container-social">
+      <p class="login-container-social-label">or continue with</p>
+      <button class="twitter-login-button" type="button" name="twitter-login-button">
+        <i class="fab fa-twitter"></i>
+        Sign in with Twitter
+      </button>
+    </div>
+  </div>
+</div>

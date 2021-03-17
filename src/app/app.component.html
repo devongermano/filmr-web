@@ -1,0 +1,8 @@
+<!-- <app-header></app-header> -->
+<app-sidebar></app-sidebar>
+
+<div class="container" [@fromBottomEasing]="getState(o)">
+  <router-outlet #o="outlet"></router-outlet>
+
+</div>
+<!--<app-footer *ngIf="(authService.firebaseUserObservable | async)"></app-footer>-->

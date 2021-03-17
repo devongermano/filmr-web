@@ -1,0 +1,26 @@
+<div class="login-container">
+  <i class="fab fa-twitter"></i>
+  <img class="login-logo" src="assets/filmr.svg">
+  <div class="login-modal">
+    <div class="login-modal-internal">
+      <!--      <p class="auth-error-text">An account with that email already exists.</p>-->
+<!--      <button (click)="onTwitterLogin()" class="twitter-button" type="button">-->
+<!--        <i class="fab fa-twitter"></i>-->
+<!--        Log in with Twitter-->
+<!--      </button>-->
+      <p class="divider">Hey you, a Filmr account with this email address already exists. Enter your current
+      Filmr password to continue.</p>
+      <form (submit)="onEmailLogin()">
+        <div class="input-wrapper">
+          <input #emai id="email" class="input" placeholder="Email" type="email" [(ngModel)]="email" name="email" disabled>
+        </div>
+        <div class="input-wrapper">
+          <input class="input" placeholder="Password" type="password" [(ngModel)]="password" name="password">
+        </div>
+        <button class="login-button">Login</button>
+      </form>
+      <p class="login-signup">Don't have an account yet? <a href="signup">Signup</a></p>
+      <p class="disclaimer">This site is protected by reCAPTCHA. The Google <a href="https://policies.google.com/privacy?hl=en-US">Privacy Policy</a> and <a href="https://policies.google.com/terms?hl=en-US">Terms of Service</a> apply.</p>
+    </div>
+  </div>
+</div>
