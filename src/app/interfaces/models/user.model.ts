@@ -1,4 +1,4 @@
-import { Partial } from "./partial";
+import { Partial } from "../partial";
 
 export interface UserModel {
   firebaseUuid: string;

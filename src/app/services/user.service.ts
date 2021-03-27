@@ -3,7 +3,7 @@ import { environment } from '../../environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, take } from 'rxjs/operators';
-import {UpdateUserModel, UserModel} from "../interfaces/user.model";
+import {UpdateUserModel, UserModel} from "../interfaces/models/user.model";
 import firebase from '@firebase/app';
 import '@firebase/storage';
 

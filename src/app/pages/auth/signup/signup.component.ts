@@ -12,27 +12,36 @@ export class SignupComponent implements OnInit {
 
   email = '';
   password = '';
+  verifyPassword = '';
 
-  signupError = '';
+  errorMessage = '';
 
   constructor(public authService: AuthService,
               public userService: UserService,
               public router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
-    // this.authService.signUpWithEmailandPassword(this.email, this.password)
-    //   .subscribe(result => {
-    //     this.userService.createUser().subscribe(result => {
-    //       this.router.navigate(['home']);
-    //     });
-    //   }, error => {
-    //     if(error.code === FirebaseAuthErrorCodes.EmailAlreadyInUse) {
-    //       // this.authService.linkExistingToPassword(this.email, this.password);
-    //     }
-    //   }
-    // );
+    if (this.email) {
+      this.authService.checkEmailExists(this.email)
+        .subscribe((exists: boolean) => {
+          console.log(exists);
+        });
+}
+
+
+    if (this.password !== this.verifyPassword) {
+      this.showError('The passwords do not match.');
+    }
+  }
+
+  showError(errorMessage: string) {
+    this.errorMessage = errorMessage;
+  }
+
+
+  hideError() {
+    this.errorMessage = '';
   }
 }

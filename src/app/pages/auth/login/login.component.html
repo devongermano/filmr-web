@@ -2,7 +2,7 @@
   <img class="login-logo" src="../../../../assets/filmr.svg">
   <div class="login-modal">
     <div class="login-modal-internal">
-<!--      <p class="auth-error-text">An account with that email already exists.</p>-->
+      <p *ngIf="error" class="login-error-text">{{this.error}}</p>
       <button (click)="onTwitterLogin()" class="twitter-button" type="button">
         <i class="fab fa-twitter"></i>
         Log in with Twitter

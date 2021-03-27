@@ -9,7 +9,7 @@
         Sign Up with Twitter
       </button>
       <p class="divider">OR</p>
-      <form>
+      <form (ngSubmit)="onSubmit()">
         <div class="input-wrapper">
           <input #emai id="email" class="input" placeholder="Email" type="email" [(ngModel)]="email" name="email">
         </div>
@@ -17,9 +17,11 @@
           <input class="input" placeholder="Password" type="password" [(ngModel)]="password" name="password">
         </div>
         <div class="input-wrapper">
-          <input class="input" placeholder="Verify password" type="password" [(ngModel)]="password" name="password">
+          <label>
+            <input class="input" placeholder="Verify password" type="password" [(ngModel)]="verifyPassword" name="password">
+          </label>
         </div>
-        <button class="signup-button">Sign Up</button>
+        <button class="signup-button" type="submit">Sign Up</button>
       </form>
       <p class="signup-signup">Already have an account? <a href="auth/login">Login</a></p>
       <p class="disclaimer">This site is protected by reCAPTCHA. The Google <a href="https://policies.google.com/privacy?hl=en-US">Privacy Policy</a> and <a href="https://policies.google.com/terms?hl=en-US">Terms of Service</a> apply.</p>

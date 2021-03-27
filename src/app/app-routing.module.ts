@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: '', loadChildren: () => import('./pages/splash/splash.module').then(m => m.SplashModule) },
   { path: 'auth', canActivate: [LoginGuard], loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule) },
   { path: 'onboarding', loadChildren: () => import('./pages/onboarding/onboarding.module').then(m => m.OnboardingModule) },
-  { path: 'complete-profile', loadChildren: () => import('./pages/complete-profile/complete-profile.module').then(m => m.CompleteProfileModule) },
   { path: 'home', data: {state:  'home'}, canActivate: [AuthGuard], loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
   { path: 'profile', data: {state:  'profile'}, canActivate: [AuthGuard], loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule) },
   { path: 'edit-profile', data: {state:  'edit-profile'}, canActivate: [AuthGuard], loadChildren: () => import('./pages/edit-profile/edit-profile.module').then(m => m.EditProfileModule) },

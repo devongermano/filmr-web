@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService, TwitterCallbackResponse } from '../../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
+import {TwitterLoginResponse} from '../../../interfaces/responses/twitter-login.response';
+
+export interface APIError {
+  message: string;
+  code: string;
+}
+
+
 
 @Component({
   selector: 'app-twitter-callback',
@@ -28,16 +36,21 @@ export class CallbackComponent implements OnInit {
       console.log(this.oauthVerifier);
       console.log(this.provider);
 
-      this.authService.loginWithTwitterCallback(this.oauthToken, this.oauthVerifier)
-        .subscribe((twitterCallbackResponse: TwitterCallbackResponse) => {
-        console.log(twitterCallbackResponse);
-        if (twitterCallbackResponse.auth_state === 'link_account') {
-          this.router.navigate(['auth/link']);
-        }
-        if (twitterCallbackResponse.auth_state === 'create_account') {
-          this.router.navigate(['auth/signup']);
-        }
-      });
+      this.authService.loginWithTwitter(this.oauthToken, this.oauthVerifier)
+        .subscribe((twitterCallbackResponse: TwitterLoginResponse) => {
+          // Check if this is the first time the user has logged in, then route them to the correct page
+          this.router.navigate(['onboarding']);
+      }, error => {
+          const parsedError = this.parseAPIError(error.error);
+          this.router.navigate(['auth/login'], { queryParams: { error: parsedError.message }});
+        });
     });
+  }
+  parseAPIError(error): APIError {
+    if (Array.isArray(error)) {
+      return error[0];
+    } else {
+      return error;
+    }
   }
 }

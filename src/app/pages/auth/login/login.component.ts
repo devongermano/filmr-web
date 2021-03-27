@@ -1,8 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { UserService} from '../../../services/user.service';
-import { AuthService, TwitterAuth } from '../../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
+import {TwitterAuthResponse} from '../../../interfaces/responses/twitter-auth.response';
 
 @Component({
   selector: 'app-login',
@@ -18,25 +19,37 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   twitterAuthorizeUrl;
 
+  error;
+
 
   @ViewChild('email') emailInput: ElementRef;
 
   constructor(public authService: AuthService,
               public router: Router,
+              private route: ActivatedRoute,
               private userService: UserService,
               private recaptchaV3Service: ReCaptchaV3Service) { }
 
   ngOnInit(): void {
-    this.authService.getTwitterLoginURL().subscribe((twitter: TwitterAuth) => {
-      this.twitterAuthorizeUrl = twitter.authorize_url;
+    this.route.queryParams.subscribe(params => {
+      this.error = params.error;
     });
+
+    // this.authService.getTwitterLoginUrl().subscribe((twitter: TwitterAuth) => {
+    //   this.twitterAuthorizeUrl = twitter.authorize_url;
+    // });
   }
 
   ngAfterViewInit(): void {}
 
 
   onTwitterLogin(): void {
-    window.location.href = this.twitterAuthorizeUrl;
+    if (!this.twitterAuthorizeUrl) {
+      this.authService.getTwitterLoginUrl().subscribe((twitter: TwitterAuthResponse) => {
+        this.twitterAuthorizeUrl = twitter.authorize_url;
+        window.location.href = twitter.authorize_url;
+      });
+    }
   }
 
 
@@ -44,7 +57,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.loginButtonDisabled = true;
     this.authService.loginWithEmailAndPassword(this.email, this.password)
       // .subscribe((token: string) => {
-      //   console.log(token);
+      //   console.log(token);s
       //   this.onLoginSuccessful();
       // }, (error) => {
       //   console.error(error);
@@ -53,7 +66,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
       //   // this.router.navigate(['home']);
       // });
   }
-
 
   onLoginSuccessful() {
     // Preload the user data

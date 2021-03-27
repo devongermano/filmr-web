@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UserService} from "../../services/user.service";
-import {UserModel} from "../../interfaces/user.model";
+import {UserModel} from "../../interfaces/models/user.model";
 import {Router} from "@angular/router";
 import {PageHeaderType} from "../../common/page-header/page-header.component";
 

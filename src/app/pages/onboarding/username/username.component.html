@@ -1,0 +1,19 @@
+<div class="onboarding-container">
+  <img class="onboarding-logo" src="../../../../assets/filmr.svg">
+  <div class="onboarding-modal">
+    <div class="onboarding-modal-internal">
+      <!--      <p *ngIf="error" class="onboarding-error-text">{{this.error}}</p>-->
+      <h4>Hey, welcome to Filmr! Let's get you a username.</h4>
+      <form>
+        <div class="input-wrapper">
+          <input #username id="username" class="input" placeholder="Username" type="username" name="username" [(ngModel)]="profile.username">
+          <div class="input-validator-wrapper">
+            <i class="fas fa-check-circle"></i>
+          </div>
+        </div>
+        <button class="onboarding-button">Continue</button>
+      </form>
+      <p class="disclaimer">No pressure by the way, you can always change your username later.</p>
+    </div>
+  </div>
+</div>

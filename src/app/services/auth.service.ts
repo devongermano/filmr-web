@@ -2,37 +2,14 @@ import { Injectable } from '@angular/core';
 
 import '@firebase/auth';
 import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {Observable, of, Subject} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {Jwt} from '../interfaces/jwt';
+import {LocalStorageService} from './local-storage.service';
+import {TwitterLoginRequest} from '../interfaces/requests/twitter-login.request';
+import {TwitterLoginResponse} from '../interfaces/responses/twitter-login.response';
+import {TwitterAuthResponse} from '../interfaces/responses/twitter-auth.response';
 
-export interface LoginRequest {
-  email: string;
-  password: string;
-}
-
-export interface TwitterCallbackResponse {
-  auth_state: string;
-  profile: any;
-  twitter_profile: TwitterProfile;
-}
-
-export interface TwitterProfile {
-  id: number;
-  name: string;
-  screen_name: string;
-  description: string;
-  email: string;
-  profile_image_url: string;
-}
-
-export interface TwitterAuth {
-  authorize_url: string;
-}
-
-export interface TwitterLoginRequest {
-  oauth_token: string;
-  oauth_verifier: string;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -40,16 +17,20 @@ export interface TwitterLoginRequest {
 export class AuthService {
 
   baseUrl = 'http://localhost:8000';
-  private token;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private localStorageService: LocalStorageService) {}
 
-  getToken(): Observable<string> {
-    return of(this.token);
-  }
+
+   getJwtToken(): Observable<Jwt>  {
+    return this.localStorageService.getItem<Jwt>('jwt');
+   }
 
   isAuthenticated(): Observable<boolean> {
-    return of(!!this.token);
+    return this.getJwtToken()
+      .pipe(map((jwt: Jwt) => {
+      return !!jwt;
+    }));
   }
 
   loginWithEmailAndPassword(email: string, password: string) {
@@ -61,15 +42,33 @@ export class AuthService {
     // }));
   }
 
-  getTwitterLoginURL(): Observable<TwitterAuth>  {
-    return this.http.get<TwitterAuth>(this.baseUrl + '/auth/twitter/login/', { withCredentials: true });
+  checkEmailExists(email: string): Observable<boolean> {
+    const subject: Subject<boolean> = new Subject();
+    this.http.get(this.baseUrl + `/auth/email/exists?email=${email}`).subscribe(_ => {
+      subject.next(true);
+    }, error => {
+      catchError(error);
+      subject.next(false);
+    });
+    return subject.asObservable();
   }
 
-  loginWithTwitterCallback(oauthToken: string, oauthVerifier: string): Observable<TwitterCallbackResponse> {
+  getTwitterLoginUrl(): Observable<TwitterAuthResponse>  {
+    return this.http.get<TwitterAuthResponse>(this.baseUrl + '/auth/twitter/login/', { withCredentials: true });
+  }
+
+  loginWithTwitter(oauthToken: string, oauthVerifier: string): Observable<TwitterLoginResponse> {
     const twitterLoginRequest: TwitterLoginRequest = {oauth_token: oauthToken, oauth_verifier: oauthVerifier};
-    return this.http.post<TwitterCallbackResponse>(this.baseUrl + '/auth/twitter/callback/', twitterLoginRequest)
-      .pipe(map((twitterCallbackResponse: TwitterCallbackResponse) => {
-        return twitterCallbackResponse;
+    return this.http.post<TwitterLoginResponse>(this.baseUrl + '/auth/twitter/callback/', twitterLoginRequest)
+      .pipe(map((twitterLoginResponse: TwitterLoginResponse) => {
+        this.localStorageService.setItem('profile', twitterLoginResponse.profile);
+        this.localStorageService.setItem('twitterProfile', twitterLoginResponse.twitter_profile);
+        this.localStorageService.setItem('jwt', twitterLoginResponse.jwt);
+        return twitterLoginResponse;
       }));
+  }
+
+  logout(): Observable<boolean> {
+    return this.localStorageService.clear();
   }
 }

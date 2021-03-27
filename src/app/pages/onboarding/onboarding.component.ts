@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
+export enum OnboardingState {
+  Username,
+  Age,
+  Creator,
+  AdultContent,
+  Banking
+}
+
 @Component({
   selector: 'app-onboarding',
   templateUrl: './onboarding.component.html',
@@ -7,9 +15,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OnboardingComponent implements OnInit {
 
-  constructor() { }
+  OnboardingState = OnboardingState;
 
-  ngOnInit(): void {
+  onboardingState: OnboardingState = OnboardingState.Username;
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  setState(state: OnboardingState) {
+    this.onboardingState = state;
   }
-
 }
