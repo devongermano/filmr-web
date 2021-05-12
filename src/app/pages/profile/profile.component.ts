@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../services/user.service";
-import {UserModel} from "../../interfaces/models/user.model";
-import {ActivatedRoute, Router} from "@angular/router";
-import {PageHeaderType} from "../../common/page-header/page-header.component";
+import {UserService} from '../../services/user.service';
+import {UserModel} from '../../interfaces/models/user.model';
+import {ActivatedRoute, Router} from '@angular/router';
+import {PageHeaderType} from '../../common/page-header/page-header.component';
+import {ProfileModel, ProfileService} from '../../services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,13 +14,15 @@ export class ProfileComponent implements OnInit {
 
   pageHeaderType = PageHeaderType.None;
 
-  user: UserModel;
+  profile: ProfileModel;
 
-  constructor(public userService: UserService, public router: Router, public route: ActivatedRoute) { }
+  constructor(public profileService: ProfileService,
+              public router: Router,
+              public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe((user: UserModel) => {
-      this.user = user;
+    this.profileService.getProfile().subscribe(profile => {
+      this.profile = profile;
     });
   }
 }

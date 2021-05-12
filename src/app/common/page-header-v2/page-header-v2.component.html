@@ -1,0 +1,15 @@
+<div class="left">
+  <button *ngIf="showBackButton" class="back-button" (click)="router.navigate(['..'], { relativeTo: route })">
+    <i class="fas fa-angle-left"></i>
+  </button>
+</div>
+
+<div class="title">
+  <ng-content select="[header-title]"></ng-content>
+</div>
+
+
+<div class="right">
+  <ng-content select="[header-right]"></ng-content>
+</div>
+

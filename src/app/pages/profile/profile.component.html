@@ -1,7 +1,14 @@
-<app-page-header [title]="user?.username" [type]="pageHeaderType"></app-page-header>
+<app-page-header-v2>
+  <div header-title>
+    {{profile.username || 'Profile'}}
+  </div>
+  <!--  <div header-right>-->
+  <!--    <button class="header-back-button">Signup</button>-->
+  <!--  </div>-->
+</app-page-header-v2>
 <div class="profile-header">
-  <img class="profile-header-glyph" [src]="user?.photoUrl">
-  <p class="profile-header-username">@{{user?.username}}</p>
+  <img class="profile-header-glyph" [src]="">
+  <p class="profile-header-username">@{{profile.username}}</p>
   <div class="profile-stats">
     <div class="profile-stat">
       <div class="profile-stat-value">86</div>
@@ -18,8 +25,7 @@
   </div>
 
 <!--<button>Subscribe</button>-->
-<button class="profile-header-button" (click)="router.navigate(['edit-profile'])">Edit Profile</button>
+<button class="profile-header-button" (click)="router.navigate(['/profile/edit'])">Edit Profile</button>
 
-  <p class="profile-header-bio">Hey! My names Devy! I'm a Sean Cody model and a content creator on
-TikTok. Subscribe!</p>
+  <p class="profile-header-bio">{{profile.bio}}</p>
 </div>

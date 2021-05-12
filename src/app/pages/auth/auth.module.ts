@@ -10,6 +10,12 @@ import { LinkComponent } from './link/link.component';
 import {IonicModule} from '@ionic/angular';
 import { AuthComponent } from './auth.component';
 import {SignupComponent} from './signup/signup.component';
+import {ContentModule} from '../../common/content/content.module';
+import {PageHeaderModule} from '../../common/page-header/page-header.module';
+import {BannerModule} from '../../components/banner/banner.module';
+import {PageHeaderV2Module} from '../../common/page-header-v2/page-header-v2.module';
+import {PhoneAuthenticationComponent} from './phone-authentication/phone-authentication.component';
+import {FooterModule} from '../../common/footer/footer.module';
 
 
 @NgModule({
@@ -17,13 +23,19 @@ import {SignupComponent} from './signup/signup.component';
                 CallbackComponent,
                 LinkComponent,
                 AuthComponent,
-                SignupComponent],
+                SignupComponent,
+                PhoneAuthenticationComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
     BackgroundAdjusterModule,
     IonicModule,
     FormsModule,
+    ContentModule,
+    PageHeaderModule,
+    BannerModule,
+    PageHeaderV2Module,
+    FooterModule
   ]
 })
 export class AuthModule { }

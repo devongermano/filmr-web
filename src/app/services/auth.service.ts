@@ -9,6 +9,8 @@ import {LocalStorageService} from './local-storage.service';
 import {TwitterLoginRequest} from '../interfaces/requests/twitter-login.request';
 import {TwitterLoginResponse} from '../interfaces/responses/twitter-login.response';
 import {TwitterAuthResponse} from '../interfaces/responses/twitter-auth.response';
+import {LoginRequest} from '../interfaces/requests/login.request';
+import {EmailLoginResponse} from '../interfaces/responses/email-login.response';
 
 
 @Injectable({
@@ -34,12 +36,12 @@ export class AuthService {
   }
 
   loginWithEmailAndPassword(email: string, password: string) {
-    // const loginRequest: LoginRequest = {email, password};
-    // return this.http.post<LoginResponse>(this.baseUrl + '/auth/jwt/', loginRequest)
-    //   .pipe(map((loginResponse: LoginResponse) => {
-    //   this.token = loginResponse.token;
-    //   return this.token;
-    // }));
+    const loginRequest: LoginRequest = {email, password};
+    return this.http.post<EmailLoginResponse>(this.baseUrl + '/auth/email/login/', loginRequest)
+      .pipe(map((emailLoginResponse: EmailLoginResponse) => {
+      this.localStorageService.setItem('jwt', emailLoginResponse.jwt);
+      return emailLoginResponse;
+    }));
   }
 
   checkEmailExists(email: string): Observable<boolean> {

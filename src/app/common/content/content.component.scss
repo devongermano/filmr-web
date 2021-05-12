@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  flex: 1 0;
+  justify-content: center;
+  align-items: center;
+}
+
+@import '../../../../node_modules/include-media/dist/include-media';
+
+
+$breakpoints: (xsmall: 500px, small: 768px, medium: 960px, large: 1200px);
+/* Inclusive and exclusive operators for a finer control over the intervals */
+
+@include media("<xsmall") {
+  :host  {
+    //align-items: inherit;
+  }
+}

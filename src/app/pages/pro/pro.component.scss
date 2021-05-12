@@ -1,0 +1,47 @@
+
+.proheader {
+  height: 50px;
+  background-color: white;
+  border-bottom: 1px solid #d6d6d6;
+  display: flex;
+  .proheader-right {
+    margin-left: auto;
+  }
+}
+
+.prolayout {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  border-right: 1px solid #d6d6d6;
+  height: 100vh;
+  background: white;
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    .sidebar-header-logo {
+      height: 40px;
+    }
+  }
+  ul {
+    li {
+      padding: 20px 20px;
+      font-size: 16px;
+    }
+  }
+}
+
+.procontent {
+  flex: 1 1 auto;
+  padding: 20px;
+}
+
+.procontent-header {
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}

@@ -1,8 +1,9 @@
-<!-- <app-header></app-header> -->
-<app-sidebar></app-sidebar>
+<router-outlet></router-outlet>
 
-<div class="container" [@fromBottomEasing]="getState(o)">
-  <router-outlet #o="outlet"></router-outlet>
-
+<div class="modal-router-container" [@isVisibleChanged]="getState(o)">
+  <router-outlet #o="outlet" name="modal"></router-outlet>
 </div>
-<!--<app-footer *ngIf="(authService.firebaseUserObservable | async)"></app-footer>-->
+
+<ng-container *ngIf="showMenu">
+  <app-footer></app-footer>
+</ng-container>

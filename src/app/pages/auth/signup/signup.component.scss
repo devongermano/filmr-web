@@ -3,6 +3,11 @@ $font-secondary-size: 14px;
 
 $black: #130b2c;
 
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
 p {
   font-size:$font-base-size;
@@ -18,15 +23,11 @@ h1 {
   height: 40px;
   margin-bottom: 50px;
 }
-
-.signup-container {
-  width: 100%;
-  height: 90vh;
+.signup-logo-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
+
 
 .signup-modal {
   width: 320px;
@@ -118,9 +119,6 @@ $breakpoints: (xsmall: 500px, small: 768px, medium: 960px, large: 1200px);
 /* Inclusive and exclusive operators for a finer control over the intervals */
 
 @include media("<xsmall") {
-  .signup-container {
-    background: white;
-  }
   .signup-modal {
     background: transparent;
     box-shadow: none;

@@ -29,6 +29,7 @@
     "croppie": "^2.6.5",
     "firebase": "^8.1.2",
     "firebaseui": "^4.7.1",
+    "hammerjs": "^2.0.8",
     "include-media": "^1.4.9",
     "ng-recaptcha": "^7.0.1",
     "ngx-router-animations": "0.0.9",

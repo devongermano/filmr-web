@@ -1,0 +1,14 @@
+@import './colors';
+@import './font_sizes';
+
+.filmr-button {
+  border: none;
+  background: $black;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: $font-base-size;
+  padding: 12px;
+  width: 100%;
+  color: white;
+  margin-top: 40px;
+}

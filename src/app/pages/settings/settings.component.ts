@@ -18,9 +18,9 @@ export class SettingsComponent implements OnInit {
   }
 
   logout() {
-    // this.authService.logout().subscribe(() => {
-    //   this.router.navigate(['/auth']);
-    // });
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/auth/login']);
+    });
   }
 
 }

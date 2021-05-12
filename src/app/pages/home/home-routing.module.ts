@@ -2,18 +2,23 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { CreatePostModalComponent } from './create-post-modal/create-post-modal.component';
+import {ModalComponent} from '../modal/modal.component';
+import {TestModalComponent} from '../modal/test-modal/test-modal.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent,
     children: [
-      {
-        path: 'create-post', // child route path
-        component: CreatePostModalComponent, // child route component that the router renders
-      }]
-  }];
+      // {
+      //   path: 'modal',
+      //   component: ModalComponent,
+      //   outlet: 'modal',
+      // },
+    ]
+  },
+
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -1,0 +1,42 @@
+@import './colors';
+@import './font_sizes';
+
+.filmr-input-wrapper {
+  position: relative;
+  margin: 10px 0;
+}
+
+.filmr-input {
+  border: 3px solid $black;
+  background: transparent;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: $font-base-size;
+  padding: 12px;
+  width: 100%;
+  outline: none;
+  background-clip: padding-box;
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.5);
+    opacity: 1; /* Firefox */
+  }
+  &:focus {
+    border-color: #00acee;
+  }
+}
+
+.filmr-input-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+  .filmr-input-overlay-right {
+    font-size: 20px;
+    margin-right: 12px;
+  }
+}

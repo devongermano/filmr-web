@@ -4,6 +4,8 @@ import { UserService} from '../../../services/user.service';
 import { AuthService } from '../../../services/auth.service';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
 import {TwitterAuthResponse} from '../../../interfaces/responses/twitter-auth.response';
+import {EmailLoginResponse} from '../../../interfaces/responses/email-login.response';
+
 
 @Component({
   selector: 'app-login',
@@ -52,19 +54,18 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
   }
 
-
   onEmailLogin() {
     this.loginButtonDisabled = true;
     this.authService.loginWithEmailAndPassword(this.email, this.password)
-      // .subscribe((token: string) => {
-      //   console.log(token);s
-      //   this.onLoginSuccessful();
-      // }, (error) => {
-      //   console.error(error);
-      //   this.loginButtonDisabled = false;
-      // }, () => {
-      //   // this.router.navigate(['home']);
-      // });
+      .subscribe((emailLoginResponse: EmailLoginResponse) => {
+        console.log(emailLoginResponse);
+        this.onLoginSuccessful();
+      }, (error) => {
+        console.error(error);
+        this.loginButtonDisabled = false;
+      }, () => {
+        // this.router.navigate(['home']);
+      });
   }
 
   onLoginSuccessful() {

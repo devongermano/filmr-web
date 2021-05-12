@@ -1,0 +1,17 @@
+<app-content>
+  <div style="min-width: 320px;">
+    <p style="font-size: 18px; margin-bottom: 40px;"><b>Hey!</b> Welcome to filmr. <br/>Let's get you a username.</p>
+      <form>
+        <div class="filmr-input-wrapper">
+          <input #username id="username" class="filmr-input" placeholder="Username" type="username" name="username" [(ngModel)]="profile.username">
+          <div class="filmr-input-overlay">
+            <div class="filmr-input-overlay-right">
+<!--              <app-throbber></app-throbber>-->
+              <i class="fas fa-check-circle"></i>
+            </div>
+          </div>
+        </div>
+        <button class="filmr-button" (click)="router.navigate(['onboarding/adult-content'])">Continue</button>
+      </form>
+  </div>
+</app-content>

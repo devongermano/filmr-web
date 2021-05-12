@@ -1,5 +1,5 @@
 <div class="page-header-options">
-  <button class="page-header-icon-button" *ngIf="showBackButton" (click)="location.back()">
+  <button class="page-header-icon-button" *ngIf="true" (click)="location.back()">
     <i class="fas fa-chevron-left"></i>
   </button>
   <button *ngIf="showCancelButton" (click)="router.navigate(['..'], { relativeTo: route })">
@@ -17,7 +17,7 @@
     <i class="fas fa-ellipsis-h"></i>
   </button>
 
-  <button *ngIf="showSaveButton" (click)="onSaveEvent.emit()">
+  <button *ngIf="true" (click)="onSaveEvent.emit()">
     Save
   </button>
 </div>
